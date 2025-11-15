@@ -1,0 +1,59 @@
+body {
+    color: darkblue;
+    background-color: aliceblue;
+    font-family: arial, sans-serif;
+}
+
+h1{
+    background-color: lightblue;
+    font-family: arial, sans-serif;
+    text-align: center;
+}
+
+.navbar {
+    position: static;
+    top: 2em;
+    width: 100%;
+    left: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lightgray;
+}
+
+.navbar li {
+    list-style-type: none;
+    padding: 8px;
+    background-color: lightgray;
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: lightgray;
+    list-style: none;
+    width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+@media all {
+    body {
+        font-size: 16px;
+    }
+}
+@media print {
+    body {
+        background: white;
+        color: black;
+        font-size: 12px;
+    }
+
+    .navbar {
+        display: none;
+    }
+}
