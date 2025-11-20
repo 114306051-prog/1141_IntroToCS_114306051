@@ -1,0 +1,116 @@
+body{
+	background-color: lightgray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+hr{
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.main-container{
+	width: 1000px;
+	background-color: white;
+    display: flex;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.left-panel {
+    width: 30%;
+    background-color: aliceblue;
+    color: black;
+}
+
+.photo-panel {
+    width: 100%;
+    height: 250px;
+    background-image: url("personalphoto.jpg");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+.NCCU-photo{
+	margin-top: 20px;
+	width: 200px;
+}
+
+.right-panel {
+    width: 70%;
+    padding: 20px;
+}
+
+.section-title{
+    font-weight: 700;
+    margin: 25px 0 10px;
+}
+
+.text-content{
+	line-height: 1.5;
+    padding: 15px;
+}
+
+.edu-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 6px;
+}
+
+.year{
+	color: darkblue;
+}
+
+.tag{
+	background-color: aliceblue;
+	color: darkblue;
+	border-radius: 12px;
+	margin-right: 8px;
+}
+
+.hw-lab-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.hw-column,
+.lab-column {
+    flex: 1;
+    background-color: whitesmoke;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.hw-column a,
+.lab-column a {
+    text-decoration: none;
+    color: darkblue;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.hw-column a:hover,
+.lab-column a:hover {
+    color: blueviolet;
+}
+
+.music-row{
+	display: flex;
+	justify-content: space-around;
+}
+
+.music-item{
+	text-align: center;
+}
+
+.music-item img{
+	width: 50px;
+}
+
+.music-note{
+	color: darkgray;
+}
