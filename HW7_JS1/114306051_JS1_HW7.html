@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1A2B Game</title>
+</head>
+<body>
+    <h1>114306051_HW7_1A2B</h1> 
+    <div class="container">
+        <div class="input-area">
+            Enter 4 unique numbers 
+            <input type="text" id="guessInput" maxlength="4" placeholder="">
+            <button onclick="play()">Guess!</button>
+        </div>
+        <div id="record-area">
+            Game Record :<br>
+        </div>
+    </div>
+    <script>
+        let answer = "";
+        let guessCount = 0;
+        const recordDiv = document.getElementById("record-area");
+        const inputField = document.getElementById("guessInput");
+        window.onload = function() {
+            answer = generateAnswer();
+        }
+
+        function generateAnswer() {
+            let numPool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let result = [];
+            for (let i = 0; i < 4; i++) {
+                let randomIndex = Math.floor(Math.random() * numPool.length);
+                result.push(numPool[randomIndex]);
+                numPool.splice(randomIndex, 1);
+            }
+            return result.join("");
+        }
+
+        function isValid(str) {
+            if (str.length !== 4) return false;
+            if (isNaN(str)) return false;
+            let uniqueSet = new Set(str);
+            if (uniqueSet.size !== 4) return false;
+            return true;
+        }
+
+        function checkAB(guess, ans) {
+            let a = 0;
+            let b = 0;
+            
+            for (let i = 0; i < 4; i++) {
+                if (guess[i] === ans[i]) {
+                    a++;
+                } 
+                else if (ans.includes(guess[i])) {
+                    b++;
+                }
+            }
+            return `${a}A${b}B`;
+        }
+
+        function play() {
+            let userGuess = inputField.value;
+            if (!isValid(userGuess)) {
+                alert("Check if the input consists of exactly 4 digits.");
+                inputField.value = "";
+                return;
+            }
+
+            guessCount++;
+            let resultString = checkAB(userGuess, answer);
+
+            let newRecord = `第${guessCount}次: ${userGuess} ⭢ ${resultString}<br>`;
+            recordDiv.innerHTML += newRecord;
+
+            if (resultString === "4A0B") {
+                alert(`Congratulations! You got it in ${guessCount} attempts.`);
+            }
+
+            inputField.value = "";
+        }
+    </script>
+</body>
+</html>
